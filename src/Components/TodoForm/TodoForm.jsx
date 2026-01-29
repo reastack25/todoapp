@@ -4,6 +4,7 @@ import "./TodoForm.css"
 function TodoForm({ addTask }) {
   
   const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("")
   
 
  
@@ -11,7 +12,7 @@ function TodoForm({ addTask }) {
     e.preventDefault(); 
    
 
-    if (!title) return;
+    if (!title || !description) return;
     
 
    
@@ -23,12 +24,13 @@ function TodoForm({ addTask }) {
     //   .then(res => res.json())
     //   .then(newTask => {
        
-        // addTask(newTask);
-        //  console.log(tasks)
+        addTask(title, description);
+         
 
-        // setTitle("");
-//       })
-//       .catch(err => console.error("Failed to add a new task:", err));
+        setTitle("");
+        setDescription("")
+    //   })
+    //   .catch(err => console.error("Failed to add a new task:", err));
       }
 
   return (
@@ -36,11 +38,17 @@ function TodoForm({ addTask }) {
       <input
         type="text"
         value={title}               
-        onChange={event => setTitle(event.target.value)} 
+        onChange={(event) => setTitle(event.target.value)} 
         placeholder="Enter new task"
         required
       />
-      <button onClick={handleSubmit} type="submit">Add Task</button>
+       <textarea 
+       placeholder="Task Description"
+        value={description} 
+        onChange={(event) =>
+        setDescription(event.target.value)}
+        required/>
+      <button type="submit">Add Task</button>
     </form>
   );
 }

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import TodoForm from "./Components/TodoForm/TodoForm";
 
 
+
 function App() {
   const [tasks, setTasks] = useState([]);
 
@@ -11,10 +12,11 @@ function App() {
       .then(res => res.json())
       .then(data => setTasks(data))
       .catch(err => console.error(err));
+      console.log("task", tasks)
   }, [tasks]);
 
   
-  const addTask = newTask => {
+  const addTask = (newTask) => {
     setTasks([...tasks, newTask]);
   }
   
@@ -22,10 +24,9 @@ function App() {
   return (
     <div>
       <h1>Todo App</h1>
-      <TodoForm addTask={addTask} 
-
-      
+      <TodoForm addTask={addTask}
       /> 
+      
       
     </div>
   );
