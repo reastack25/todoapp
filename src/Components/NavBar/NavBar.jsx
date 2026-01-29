@@ -7,6 +7,9 @@ function NavBar() {
         <div className="nav-brand">
         <Link to="/">TodoApp </Link>
       </div>
+      <header className="header">
+        <p>Welcome to NextUp</p>
+      </header>
       <ul className="nav-menu">
         <li>
           <NavLink >
@@ -20,6 +23,7 @@ function NavBar() {
           <NavLink to="/About"> About </NavLink>
         </li>
       </ul>
+      
     </nav>
   );
 
