@@ -14,11 +14,23 @@ function App() {
       .then(res => res.json())
       .then(data => setTasks(data))
       .catch(err => console.error(err));
-  }, [tasks]);
+  }, []);
 
   const addTask = (newTask) => {
-    setTasks([...tasks, newTask]);
-  }
+  fetch("http://localhost:4000/todos", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newTask)
+  })
+    .then(res => res.json())
+    .then(data => {
+      setTasks(prevTasks => [...prevTasks, data]);
+    })
+    .catch(err => console.error(err));
+};
+
 
   return (
     <BrowserRouter>
@@ -26,22 +38,27 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={
-            <Home 
+            <Home> 
+            <TodoForm
+            
               tasks={tasks}
               addTask={addTask}
-            />
+              />
+            </Home>
           } />
           <Route path="/about" element={<About />} />
           <Route path="/tasks" element={
-            <Tasks 
+            <Tasks> 
+            <TodoForm
               tasks={tasks}
               addTask={addTask}
-            />
+              />
+            </Tasks>
           } />
         </Routes>
       </main>
       <footer className="footer">
-        <p>DoIt! - Stay Productive</p>
+        <p>Do It! - Stay Productive</p>
       </footer>
     </BrowserRouter>
   );
