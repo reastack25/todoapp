@@ -18,6 +18,9 @@ function App() {
            />
         </Routes>
       </main>
+      <footer className="footer">
+        <p>DoIt! - Stay Productive</p>
+      </footer>
     </BrowserRouter>
 
   )
