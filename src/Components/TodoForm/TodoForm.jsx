@@ -4,6 +4,7 @@ import "./TodoForm.css"
 function TodoForm({ addTask }) {
   
   const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("")
   
 
  
@@ -11,36 +12,45 @@ function TodoForm({ addTask }) {
     e.preventDefault(); 
    
 
-    if (!title) return;
+    if (!title || !description) return;
     
 
    
-    // fetch(" http://localhost:4000/todos", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({ title: title.trim(), completed: false }),
-    // })
-    //   .then(res => res.json())
-    //   .then(newTask => {
+    
        
-        // addTask(newTask);
-        //  console.log(tasks)
+        addTask(title, description);
+         
 
-        // setTitle("");
-//       })
-//       .catch(err => console.error("Failed to add a new task:", err));
+        setTitle("");
+        setDescription("")
+        completed: false
+    
       }
+      const newTask = {
+        title: title.trim(),
+        description: description.trim(),
+        completed: false
+      }
+      console.log(title)
+      console.log(description)
+      console.log(newTask)
 
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
         value={title}               
-        onChange={event => setTitle(event.target.value)} 
+        onChange={(event) => setTitle(event.target.value)} 
         placeholder="Enter new task"
         required
       />
-      <button onClick={handleSubmit} type="submit">Add Task</button>
+       <textarea 
+       placeholder="Task Description"
+        value={description} 
+        onChange={(event) =>
+        setDescription(event.target.value)}
+        required/>
+      <button  type="submit">Add Task</button>
     </form>
   );
 }
