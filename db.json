@@ -1,0 +1,24 @@
+{ "tasks": [
+    {
+      "id": "1",
+      "title": "Learn React Vite",
+      "description": "Set up a new project with React and Vite",
+      "completed": false,
+      "priority": "high"
+    },
+    {
+      "id": "2",
+      "title": "Learn how to use Json server",
+      "description": "Create mock API for development and grade with my projects",
+      "completed": true,
+      "priority": "medium"
+    },
+    {
+      "id": "3",
+      "title": "Build TODO App UI",
+      "description": "Create components for task management that also help users to manage  ",
+      "completed": true,
+      "priority": "high"
+    }
+  ]
+}
