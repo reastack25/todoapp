@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     fetch(" http://localhost:4000/todos")
       .then(res => res.json())
-      .then(data => setTasks(data))
+      .then(res => setTasks(res))
       .catch(err => console.error(err));
       console.log("task", tasks)
   }, [tasks]);
@@ -19,6 +19,8 @@ function App() {
   const addTask = (newTask) => {
     setTasks([...tasks, newTask]);
   }
+
+  
   
 
   return (
