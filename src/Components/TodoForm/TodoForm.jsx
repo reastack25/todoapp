@@ -1,56 +1,62 @@
-import { useState, useEffect } from "react";
+import React, { useState } from 'react';
+import axios from 'axios';
 import "./TodoForm.css"
 
 function TodoForm({ addTask }) {
-  
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("")
-  
+  const [description, setDescription] = useState("");
 
- 
-  const handleSubmit = e => {
-    e.preventDefault(); 
-   
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    if (!title || !description) return;
-    
+    if (!title || !description) {
+      alert("Please fill in both fields");
+      return;
+    }
 
-   
-    
-       
-        addTask(title, description);
-         
+    const newTask = {
+      title: title.trim(),
+      description: description.trim(),
+      completed: false
+    };
 
-        setTitle("");
-        setDescription("")
-        completed: false
-    
+    try {
+      // Send to JSON Server
+      const response = await axios.post('http://localhost:3000/tasks', newTask);
+      
+      // Call the original addTask function if provided
+      if (addTask) {
+        addTask(response.data.title, response.data.description);
       }
-      const newTask = {
-        title: title.trim(),
-        description: description.trim(),
-        completed: false
-      }
-      console.log(title)
-      console.log(description)
-      console.log(newTask)
+      
+      // Clear form
+      setTitle("");
+      setDescription("");
+      
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Could not add task. Check if server is running.");
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        value={title}               
-        onChange={(event) => setTitle(event.target.value)} 
+        value={title}
+        onChange={(event) => setTitle(event.target.value)}
         placeholder="Enter new task"
         required
       />
-       <textarea 
-       placeholder="Task Description"
-        value={description} 
-        onChange={(event) =>
-        setDescription(event.target.value)}
-        required/>
-      <button  type="submit">Add Task</button>
+      
+      <textarea 
+        placeholder="Task Description"
+        value={description}
+        onChange={(event) => setDescription(event.target.value)}
+        required
+      />
+      
+      <button type="submit">Add Task</button>
     </form>
   );
 }

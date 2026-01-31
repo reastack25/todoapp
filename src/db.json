@@ -18,8 +18,14 @@
       "id": "3",
       "title": "Build TODO App UI",
       "description": "Create components for task management that also help users to manage  ",
-      "completed": true,
+      "completed": false,
       "priority": "high"
+    },
+    {
+      "id": "a538",
+      "title": "work on the syling",
+      "description": "complete the final stage of the project",
+      "completed": false
     }
   ]
 }
