@@ -11,7 +11,7 @@
       "id": "2",
       "title": "Learn how to use Json server",
       "description": "Create mock API for development and grade with my projects",
-      "completed": true,
+      "completed": false,
       "priority": "medium"
     },
     {
@@ -20,12 +20,6 @@
       "description": "Create components for task management that also help users to manage  ",
       "completed": false,
       "priority": "high"
-    },
-    {
-      "id": "a538",
-      "title": "work on the syling",
-      "description": "complete the final stage of the project",
-      "completed": false
     }
   ]
 }

@@ -21,15 +21,15 @@ function TodoForm({ addTask }) {
     };
 
     try {
-      // Send to JSON Server
+      
       const response = await axios.post('http://localhost:3000/tasks', newTask);
       
-      // Call the original addTask function if provided
+      
       if (addTask) {
         addTask(response.data.title, response.data.description);
       }
       
-      // Clear form
+    
       setTitle("");
       setDescription("");
       
@@ -40,7 +40,7 @@ function TodoForm({ addTask }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form  className="form"onSubmit={handleSubmit}>
       <input
         type="text"
         value={title}

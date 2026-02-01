@@ -3,9 +3,11 @@ import NavBar from './Components/NavBar/NavBar';
 import Home from './Pages/Home';
 import About from './Pages/About';
 import Tasks from './Pages/Tasks';
+import "./App.css"
 
 function App() {
   return (
+    <>
     <BrowserRouter>
       <NavBar/>
       <main>
@@ -19,6 +21,7 @@ function App() {
         <p>Do It! - Stay Productive</p>
       </footer>
     </BrowserRouter>
+    </>
   );
 }
 

@@ -4,16 +4,14 @@ import "./NavBar.css"
 
 function NavBar() {
   return (
-       <nav className="navbar">
+    <>    <nav className="navbar">
         <div className="nav-brand">
         <Link to="/">TodoApp </Link>
       </div>
-      <header className="header">
-        <p>Welcome to NextUp</p>
-      </header>
+      
       <ul className="nav-menu">
         <li>
-          <NavLink >
+          <NavLink to ="/">
             Home
           </NavLink>
         </li>
@@ -26,6 +24,11 @@ function NavBar() {
       </ul>
       
     </nav>
+    <header className="header">
+        <p>Welcome to NextUp</p>
+      </header></>
+   
+
   );
 
 }

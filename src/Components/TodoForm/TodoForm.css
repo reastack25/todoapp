@@ -1,3 +1,4 @@
+@import "tailwindcss";
 form {
   display: flex;
   flex-direction: column;
@@ -6,21 +7,23 @@ form {
   gap: 10px;
   justify-content: center;
   margin-bottom: 20px;
-  
+  padding: 2rem;
+  border-radius: 16px;
 }
 
-input[type="text"] {
-  flex: 1;
-  padding: 10px;
-  font-size: 16px;
-  border: 2px solid #ddd;
-  border-radius: 6px;
+.form input[type="text"],
+.form textarea {
+  width: 100%;
+  padding: 16px 20px;
+  margin-bottom: 1.5rem;
+  border: 2px solid #e0e0e071;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+  color: #333;
   outline: none;
-  transition: border 0.2s;
-}
-
-input[type="text"]:focus {
-  border-color: #007bff;
 }
 
 button {

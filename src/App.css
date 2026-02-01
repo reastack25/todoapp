@@ -1,0 +1,17 @@
+@import "tailwindcss";
+.main{
+    align-items: center;
+    border: black
+}
+
+footer{
+    align-items: center;
+}
+
+.p{
+    text-align: center;
+}
+
+.link{
+    color: aquamarine;
+}

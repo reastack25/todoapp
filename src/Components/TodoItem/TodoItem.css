@@ -1,0 +1,119 @@
+/* TodoItem.css */
+
+/* Base Todo Card */
+.todo-card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-left: 5px solid #6d28d9;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #f0f0f0;
+  position: relative;
+  overflow: hidden;
+  gap: 16px;
+}
+
+.todo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(106, 17, 203, 0.12);
+  border-left-color: #4f46e5;
+}
+
+/* Completed Todo Styling */
+.todo-card.completed {
+  border-left-color: #10b981;
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.03) 0%, white 5%);
+}
+
+.todo-card.completed .todo-title {
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+.todo-card.completed .todo-description {
+  color: #9ca3af;
+}
+
+/* Todo Header (Checkbox and Title) */
+.todo-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Custom Checkbox */
+.todo-checkbox {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: all 0.3s ease;
+}
+
+.todo-checkbox:hover {
+  border-color: #6d28d9;
+  transform: scale(1.1);
+}
+
+.todo-checkbox:checked {
+  background-color: #6d28d9;
+  border-color: #6d28d9;
+}
+
+.todo-checkbox:checked::after {
+  content: "✓";
+  position: absolute;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Todo Title */
+.todo-title {
+  flex: 1;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+  line-height: 1.4;
+  word-break: break-word;
+  transition: color 0.3s ease;
+}
+
+.todo-card.completed .todo-title {
+  color: #9ca3af;
+}
+
+/* Todo Description */
+.todo-description {
+  font-size: 1rem;
+  color: #4b5563;
+  margin: 0;
+  line-height: 1.6;
+  word-break: break-word;
+  padding-left: 40px; /* Align with title text (checkbox + gap) */
+}
+
+/* Todo Footer */
+.todo-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 12px;
+  border-top: 1px solid #f3f4f6;
+  margin-top: auto; /
+}
